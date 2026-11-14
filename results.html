@@ -164,11 +164,11 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
 const COL=["#1f5fae","#3b97ab","#ffb703","#d62828","#8b5cf6"];
 const val=k=>rows.map(r=>r[k]).filter(v=>v!==undefined&&v!=="");
 const cnt=k=>{const q=Q[k],R=val(k);return{R,c:q.o.map(o=>[o,R.filter(v=>q.k==="m"?v.l.includes(o):v===o).length])}};
-const top=k=>{const{R,c}=cnt(k),t=c.slice().sort((a,b)=>b[1]-a[1])[0];return t&&t[1]?[t[0],Math.round(t[1]/(R.length||1)*100)]:["-",0]};
+const topOf=k=>{const{R,c}=cnt(k),t=c.slice().sort((a,b)=>b[1]-a[1])[0];return t&&t[1]?[t[0],Math.round(t[1]/(R.length||1)*100)]:["-",0]};
 function bars(arr,tot){const mx=Math.max(1,...arr.map(a=>a[1]));return arr.map(([n,c])=>`<div class="hb" title="${c}"><span>${esc(n)}</span><div class="t"><i style="width:${c/mx*100}%"></i></div><em>${tot?Math.round(c/tot*100):0}%</em></div>`).join("")}
 function donut(c,t){let a=0;const g=c.map(([_,v],j)=>{const s=a;a+=t?v/t*100:0;return`${COL[j%5]} ${s}% ${a}%`}).join(",");return`<div class="dn"><div class="donut" style="background:conic-gradient(${g||"var(--line) 0 100%"})"></div><div class="lg">${c.map(([o,v],j)=>`<span><i style="background:${COL[j%5]}"></i>${esc(o)}: ${v} (${t?Math.round(v/t*100):0}%)</span>`).join("")}</div></div>`}
 function paint(){const n=rows.length;if(!n){$("#dd").innerHTML=`<section class="card lock"><span class="ico" style="width:60px;height:60px;border-radius:18px">${ic("chart")}</span><h2 class="q" style="margin-top:14px">لا توجد إجابات بعد</h2><p class="hint">استورد ملفات الإجابات، أو اربط الاستبيان بـ Supabase لتظهر النتائج هنا.</p></section>`;return}
-const sk=SKILLS.map((_,a)=>{const v=val(9).map(r=>r[a]).filter(Boolean);return v.length?v.reduce((x,y)=>x+y,0)/v.length:0}),avg=sk.reduce((x,y)=>x+y,0)/SKILLS.length,tb=top(3),tf=top(7),td=top(14);
+const sk=SKILLS.map((_,a)=>{const v=val(9).map(r=>r[a]).filter(Boolean);return v.length?v.reduce((x,y)=>x+y,0)/v.length:0}),avg=sk.reduce((x,y)=>x+y,0)/SKILLS.length,tb=topOf(3),tf=topOf(7),td=topOf(14);
 const K=(i,b,l,c)=>`<div class="kc ${c||""}"><span class="ico">${ic(i)}</span><div><b>${esc(b)}</b><span class="l">${l}</span></div></div>`;
 let h=`<div class="kp">${K("users",n,"إجابة مسجلة","n")}${K("shield",tb[0],`أكثر سلوك ملاحظة (${tb[1]}%)`)}${K("search",tf[0],`أبرز عامل مساهم (${tf[1]}%)`)}${K("bulb",td[0],`المجال الأكثر طلبا (${td[1]}%)`)}${K("star",avg.toFixed(1)+"/4","متوسط المهارات الحياتية")}</div>`;let last="";
 Q.forEach((q,k)=>{if(q.s!==last){last=q.s;h+=`<h2 class="sh"><span class="ico">${ic(SI[q.s])}</span>${q.s}</h2>`}
