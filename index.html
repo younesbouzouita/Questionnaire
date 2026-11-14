@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>استبيان تشخيص واقع الشباب واحتياجاتهم | MediaLab MJ El Alia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#f3f6fb;--surf:#fff;--ink:#14213d;--mut:#5b6784;--line:#d9e0ee;--acc:#1f5fae;--accs:#e6eefb;--tl:#3b97ab;--hi:#ffb703;--ok:#12a36b;--err:#d6336c;--r:16px;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1426;--surf:#161f38;--ink:#eef2ff;--mut:#a0abc8;--line:#2a3558;--acc:#7a98ff;--accs:#202c52;--tl:#5fc0d3;--ok:#3ccf91;--err:#ff7aa6;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1426;--surf:#161f38;--ink:#eef2ff;--mut:#a0abc8;--line:#2a3558;--acc:#7a98ff;--accs:#202c52;--tl:#5fc0d3;--ok:#3ccf91;--err:#ff7aa6;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.8 "IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;min-height:100vh}
+button,input,textarea{font:inherit;color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+header.top{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{font-weight:700;font-size:15px;display:flex;align-items:center;gap:10px}
+.brand i{width:34px;height:34px;border-radius:10px;background:var(--acc);display:grid;place-items:center;color:#fff;font-style:normal;font-size:13px;letter-spacing:0}
+.btn{border:0;border-radius:999px;padding:12px 26px;font-weight:600;cursor:pointer;background:var(--acc);color:#fff;transition:transform .15s,opacity .15s}
+.btn:hover{transform:translateY(-1px)}.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn.sm{padding:8px 18px;font-size:14px}
+:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+.hero{padding:44px 0 36px}
+.hero h1{font-size:clamp(32px,7vw,54px);line-height:1.3;margin:0 0 18px;font-weight:700;letter-spacing:0}
+.hero p{color:var(--mut);max-width:560px;margin:0 0 28px;font-size:18px}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 30px;padding:0;list-style:none}
+.facts li{background:var(--surf);border:1px solid var(--line);border-radius:999px;padding:6px 16px;font-size:14px;color:var(--mut)}
+.hero .big{display:block;height:6px;width:96px;border-radius:6px;background:linear-gradient(90deg,var(--hi),var(--acc));margin-bottom:26px}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px;box-shadow:0 14px 40px -24px rgba(20,33,61,.35)}
+.prog{margin:8px 0 22px}
+.prog .row{display:flex;justify-content:space-between;font-size:14px;color:var(--mut);margin-bottom:8px}
+.bar{height:8px;background:var(--line);border-radius:8px;overflow:hidden}
+.bar b{display:block;height:100%;background:var(--acc);border-radius:8px;transition:width .35s}
+.sec{font-size:14px;color:var(--acc);font-weight:600;margin:0 0 6px}
+h2.q{font-size:clamp(21px,4.5vw,27px);line-height:1.55;margin:0 0 6px;font-weight:600}
+.hint{color:var(--mut);font-size:14px;margin:0 0 20px}
+.opts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.opt span{display:flex;align-items:center;gap:12px;padding:13px 16px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);transition:.15s;font-size:16px;line-height:1.5}
+.opt span::before{content:"";flex:none;width:20px;height:20px;border:2px solid var(--mut);border-radius:50%;transition:.15s}
+.opt.m span::before{border-radius:6px}
+.opt input:checked+span{border-color:var(--acc);background:var(--accs);font-weight:600}
+.opt input:checked+span::before{border-color:var(--acc);background:var(--acc);box-shadow:inset 0 0 0 3px var(--accs)}
+.opt.m input:checked+span::before{box-shadow:none;background:var(--acc) center/12px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.5l2.5 2.5L10 3' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.opt input:focus-visible+span{outline:3px solid var(--hi);outline-offset:2px}
+.other{margin-top:12px;width:100%;padding:12px 14px;border:1.5px dashed var(--line);border-radius:12px;background:var(--bg)}
+textarea.free{width:100%;min-height:150px;padding:14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);resize:vertical}
+.grid{display:grid;gap:14px}
+.gi{padding:14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg)}
+.gi p{margin:0 0 10px;font-weight:600}
+.scale{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.scale .opt span{flex-direction:column;justify-content:center;text-align:center;padding:9px 4px;font-size:13px;gap:6px;min-height:68px}
+.scale .opt span::before{width:16px;height:16px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:26px;gap:12px}
+.err{color:var(--err);font-size:14px;min-height:22px;margin:10px 0 0}
+.done{text-align:center;padding:30px 10px}
+.done .ck{width:76px;height:76px;border-radius:50%;background:var(--ok);margin:0 auto 18px;display:grid;place-items:center}
+.done h2{font-size:30px;margin:0 0 10px}.done p{color:var(--mut);margin:0 auto 20px;max-width:460px}
+.dash h2{font-size:26px;margin:6px 0 4px}
+.kpi{display:flex;gap:12px;margin:14px 0 22px;flex-wrap:wrap}
+.kpi div{flex:1;min-width:140px;background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.kpi b{font-size:28px;display:block;line-height:1.3}
+.kpi span{font-size:13px;color:var(--mut)}
+.dq{padding:20px 0;border-top:1px solid var(--line)}
+.dq h3{font-size:17px;margin:0 0 12px;font-weight:600}
+.hb{display:grid;grid-template-columns:minmax(120px,38%) 1fr 44px;gap:10px;align-items:center;margin:6px 0;font-size:14px}
+.hb .t{height:12px;background:var(--line);border-radius:12px;overflow:hidden}
+.hb .t i{display:block;height:100%;background:var(--acc);border-radius:12px;transition:width .5s}
+.hb em{font-style:normal;color:var(--mut);text-align:left}
+.say{background:var(--bg);border-radius:10px;padding:10px 14px;margin:6px 0;font-size:15px}
+.note{font-size:13px;color:var(--mut);text-align:center;margin:26px 0 30px}
+.hide{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(max-width:520px){.card{padding:22px 16px}.opts{grid-template-columns:1fr}}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px}
+header.top{padding:14px 0;gap:12px;flex-wrap:wrap}
+.logo{width:46px;height:46px;border-radius:50%;background:#fff;flex:none;object-fit:cover}
+.brand{gap:12px;line-height:1.35}.brand small{display:block;font-weight:400;font-size:12px;color:var(--mut)}
+nav.tabs{display:flex;gap:4px;background:var(--surf);border:1px solid var(--line);border-radius:999px;padding:4px}
+nav.tabs a{display:flex;align-items:center;gap:6px;padding:7px 16px;border-radius:999px;color:var(--mut);text-decoration:none;font-size:14px;font-weight:600}
+nav.tabs a[aria-current=page]{background:var(--acc);color:#fff}
+svg.i{width:1.2em;height:1.2em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.ico{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;background:var(--accs);color:var(--acc);flex:none}
+.sec{display:flex;align-items:center;gap:10px;font-size:15px}
+.hero{position:relative;overflow:hidden;margin:6px 0 0;padding:38px 32px;border-radius:26px;color:#fff;background:linear-gradient(135deg,#14305f,#1f5fae 58%,#3b97ab);display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center}
+.hero::after{content:"";position:absolute;width:440px;height:440px;border-radius:50%;border:2px solid rgba(255,255,255,.15);left:-150px;bottom:-260px;pointer-events:none}
+.hero h1{color:#fff;font-size:clamp(26px,5.5vw,42px);margin:0 0 14px}
+.hero p{color:#dbe7fb;margin:0 0 20px;font-size:17px}
+.hero .logo{width:168px;height:168px;border:6px solid rgba(255,255,255,.35);box-shadow:0 22px 40px -18px rgba(0,0,0,.6)}
+.hero .facts{margin:0 0 22px}
+.hero .facts li{display:flex;gap:8px;align-items:center;background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.25);color:#fff}
+.hero .btn{background:#fff;color:#14305f;padding:14px 34px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:10px;margin:14px 0 22px}
+.tile{display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px 8px;background:var(--surf);border:1px solid var(--line);border-radius:14px;font-size:13px;text-align:center;font-weight:600;line-height:1.4}
+.card::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,var(--tl),var(--acc))}
+.card{position:relative;overflow:hidden}
+.bar b{background:linear-gradient(90deg,var(--tl),var(--acc))}
+.dh{border-radius:22px;padding:24px 26px;color:#fff;background:linear-gradient(135deg,#14305f,#1f5fae 60%,#3b97ab);display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:6px 0 18px}
+.dh .logo{width:64px;height:64px;border:3px solid rgba(255,255,255,.35)}
+.dh h1{margin:0;font-size:26px;line-height:1.4}.dh p{margin:0;color:#dbe7fb;font-size:14px}
+.dh .acts{margin-inline-start:auto;display:flex;gap:12px;align-items:center}
+.dh .btn{background:#fff;color:#14305f}
+.live{display:inline-flex;align-items:center;gap:6px;font-size:13px}.live::before{content:"";width:8px;height:8px;border-radius:50%;background:#4ade80}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.kc{background:var(--surf);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;gap:14px;align-items:flex-start}
+.kc .ico{width:44px;height:44px;border-radius:14px}
+.kc b{display:block;font-size:19px;line-height:1.5}.kc.n b{font-size:34px;line-height:1.2}
+.kc .l{font-size:13px;color:var(--mut);display:block}
+.sh{display:flex;align-items:center;gap:10px;margin:30px 0 12px;font-size:20px;font-weight:700}
+.dq{border:1px solid var(--line);background:var(--surf);border-radius:16px;padding:18px 20px;margin-bottom:12px}
+.hb{grid-template-columns:minmax(110px,38%) 1fr 48px}
+.hb .t i{background:linear-gradient(90deg,var(--tl),var(--acc))}
+.dn{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.donut{width:132px;height:132px;border-radius:50%;flex:none;position:relative}
+.donut::after{content:"";position:absolute;inset:28px;border-radius:50%;background:var(--surf)}
+.lg{display:grid;gap:6px;font-size:14px}.lg i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-inline-end:8px}
+.say{border-inline-start:4px solid var(--tl)}
+.lock{text-align:center;padding:50px 20px}
+@media(max-width:600px){.hero{grid-template-columns:1fr;padding:28px 22px;text-align:center;justify-items:center}.hero .facts{justify-content:center}.hero .logo{width:120px;height:120px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><img class="logo" id="hl" alt="شعار دار الشباب العالية"><span>دار الشباب العالية<small>MediaLab MJ El Alia</small></span></div></header>
+<main id="app" aria-live="polite"></main>
+<p class="note">إجاباتك مجهولة الهوية وتُستعمل فقط لتشخيص واقع الشباب وتطوير أنشطة المشروع.</p>
+</div>
+<script>
+const LOGO="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPAAAADwCAMAAAAJixmgAAABIFBMVEWkVFZlnaCjLShgKCnbZGdNntQXMV8bFyMbUaRZU1ZDdaQfSVafQzvLRTtQg308odXPJh0kPod3Qjl0w87NeYE9gH58OkeEPELNkJIwQjwtbsWlfoOMtrbGPEQAAAAAAABFlag7k6fHKiMOKVJFmNIUOGrSV1oYQ3craK86iMhNlJoWJjALFRcbSolJiJIMGS4nVZFKotUydrcoR005i6cWNFQwWG4nSG8wVVi5KCE5ipc2Z2+xJRwiS4pOFxYvFRU8l9IbNDdGi6kjOUwlWaVHdnhtFhPTWmJGeojJJxyzVliQGhZRoqs6kpzKNCs1ZZAHHEUkNzk5d4gye8I5dHjOSUlMJSZGam0sJiwcVJPUZWouDA0cV6eYIRkVOo1PCw1P5odYAAAAYHRSTlP/////////////////////////////////////////AP/////////////////////////////////////////////////////////////////////////////////////t9SMgAAAcyElEQVR42t2dCUPazNe3WVyqXe77vzzbu4SJoNJJGNCEEBJRgaJYQQpFUVvb7/8tnnNmEgiQIIRF6GllX3Lld7YZCBNJrNIIIbJMuMm6jqd4caWbEFnJu+iVCnFMJmOG+8CihP0ZwJalA5CsE+JPiqfCdB2oG5sMTJFVGHnFcJ8MHsk2EXgazABDb4huFDB4sEzC4vI450+ubwawruvyHLCui8vEIoTW1h04YNu9VtHdkIXLw4+TvSI7Rs01BtaD1ApMXK8kNXFPfT2Bqf92QzgLF280SIM0Bwa117JkuLkhMpVOxp/Pd4YFnm2uHTDrB65zLkqrW2fqzNA0zVTUEVNMuFmzOx33Kbo+IjhebTYaC/PsxQATXR7wyp4wZMy2zXJelV4zpVy27W4/ScujVZouKpgjC8H1krrnwGqUlddRh7AVw2DMJ9WhYxNWXQtgKkOylZ1t7PdK3feKFM5U9b3ZYSKfy17H0Rntlt8c2FtFeMwSymwtLOyA+r0N0PpYqWr01DcF9rZTMh8gMDuvSouxsm3RxmgoM2pKbwZcEZlZdv15kbROTNtMKOuMq4gMA6qaKr0NsOVmKV5sgba8WFqH2WCUe0/F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";
+const P={user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/>',shield:'<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M12 8v5M12 16h.01"/>',search:'<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',laptop:'<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M2 20h20"/>',bulb:'<path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 00-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0012 3z"/>',users:'<circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6"/><path d="M16 4.5a3.5 3.5 0 010 7M18 14c2.5.6 4 2.6 4 6"/>',chart:'<path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/>',clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',lock:'<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/>',list:'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',down:'<path d="M12 3v12M7 10l5 5 5-5M4 21h16"/>',doc:'<path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z"/><path d="M14 3v6h6"/>',star:'<path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.2 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/>'};
+const ic=n=>`<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${P[n]}</svg>`;
+const SI={"نبذة عنك":"user","السلوكيات في محيطك":"shield","الأسباب والنتائج":"search","مهاراتك وعاداتك الرقمية":"laptop","احتياجاتك واقتراحاتك":"bulb"};
+const SB_URL="https://jdghnavuxrodylxzjetr.supabase.co";/* رابط المشروع: https://xxxx.supabase.co */
+const SB_KEY="sb_publishable_dNtc5lLF9FRgzcznXK2VXg_bFfIsUnI";/* المفتاح العام (Publishable / anon) */
+const KEY="ml_el_alia_responses";
+const SKILLS=["رفض ضغط الأصدقاء عندما يكون السلوك خاطئا","التعبير عن رأيي واحترام آراء الآخرين","حل الخلافات بالحوار","التفكير قبل اتخاذ القرارات"];
+const SC=["لا أستطيع","أجد صعوبة","أستطيع أحيانا","أستطيع بسهولة"];
+const Q=[
+{s:"نبذة عنك",t:"الجنس",k:"s",o:["ذكر","أنثى"]},
+{s:"نبذة عنك",t:"ما الفئة العمرية التي تنتمي إليها؟",k:"s",o:["من 15 إلى 18 سنة","من 19 إلى 24 سنة","من 25 إلى 30 سنة","أكثر من 30 سنة"]},
+{s:"نبذة عنك",t:"ما علاقتك بدار الشباب العالية؟",k:"s",o:["منخرط بدار الشباب","مشارك في بعض الأنشطة","تلميذ بالمؤسسة التربوية","زائر أو مستفيد غير منتظم","لا تربطني بها علاقة حاليا"]},
+{s:"السلوكيات في محيطك",t:"ما السلوكيات التي تلاحظ وجودها في محيط الشباب خلال الأشهر الثلاثة الأخيرة؟",k:"m",o:["العنف اللفظي أو الجسدي","التدخين","تعاطي المواد المخدرة","التنمر والإقصاء","الاستعمال المفرط للإنترنت","السلوكيات الخطرة على مواقع التواصل الاجتماعي","الغياب عن الدراسة"],x:"سلوكيات أخرى"},
+{s:"السلوكيات في محيطك",t:"كم مرة تلاحظ السلوكيات التي اخترتها؟",k:"s",o:["يوميا","عدة مرات في الأسبوع","مرة أو عدة مرات في الشهر","نادرا","لم ألاحظها"]},
+{s:"السلوكيات في محيطك",t:"هل سبق أن تعرضت شخصيا أو واجهت وضعية مرتبطة بأحد السلوكيات المذكورة؟",h:"سؤال اختياري، ويمكنك تجاوزه.",k:"s",o:["نعم","لا"],opt:1},
+{s:"السلوكيات في محيطك",t:"أين تلاحظ هذه السلوكيات غالبا؟",k:"m",o:["داخل المؤسسة التربوية","في محيط المؤسسة التربوية","في الشارع والأحياء السكنية","في الفضاءات الترفيهية والرياضية","على مواقع التواصل الاجتماعي"],x:"أماكن أخرى"},
+{s:"الأسباب والنتائج",t:"في رأيك، ما أبرز العوامل التي تساهم في انتشار هذه السلوكيات؟",k:"m",o:["ضغط الأصدقاء والمحيط","المشاكل الأسرية","ضعف الحوار والتواصل","الفراغ وقلة الأنشطة","التأثر بالمحتويات الرقمية السلبية","ضعف الوعي بمخاطر هذه السلوكيات","صعوبات نفسية أو اجتماعية"],x:"عوامل أخرى"},
+{s:"الأسباب والنتائج",t:"ما أبرز النتائج التي يمكن أن تترتب عن هذه السلوكيات؟",k:"m",o:["تراجع المستوى الدراسي","العزلة والانطواء","الخلافات والعنف","الإضرار بالصحة والسلامة","ضعف الثقة بالنفس","التفكك في العلاقات الأسرية والاجتماعية"],x:"نتائج أخرى"},
+{s:"مهاراتك وعاداتك الرقمية",t:"كيف تقيّم قدرتك على القيام بالممارسات التالية؟",h:"اختر إجابة واحدة في كل سطر.",k:"g"},
+{s:"مهاراتك وعاداتك الرقمية",t:"كم من الوقت تقضي يوميا في استعمال الإنترنت؟",k:"s",o:["أقل من ساعة","من ساعة إلى 3 ساعات","من 3 إلى 5 ساعات","أكثر من 5 ساعات"]},
+{s:"مهاراتك وعاداتك الرقمية",t:"ما مدى حرصك على التثبت من مصدر وصحة المعلومات قبل تصديقها أو مشاركتها؟",k:"s",o:["دائما","غالبا","أحيانا","نادرا","أبدا"]},
+{s:"مهاراتك وعاداتك الرقمية",t:"هل سبق لك إنتاج محتوى رقمي (فيديو، صورة، تصميم، منشور أو غيره)؟",k:"s",o:["نعم، بصفة منتظمة","نعم، بصفة محدودة","لا، لكن أرغب في ذلك","لا، ولا أفكر حاليا في ذلك"]},
+{s:"احتياجاتك واقتراحاتك",t:"هل ترى أن الأنشطة الشبابية والتربوية المتاحة حاليا تستجيب لاحتياجات الشباب في مجال الوقاية والتوعية؟",k:"s",o:["نعم، تستجيب بدرجة كبيرة","تستجيب إلى حد ما","لا تستجيب بالشكل الكافي","لا أعرف"]},
+{s:"احتياجاتك واقتراحاتك",t:"ما المجالات التي ترغب في الاستفادة من تكوين أو أنشطة فيها؟",k:"m",o:["الوقاية من السلوكيات المحفوفة بالمخاطر","تنمية المهارات الحياتية والحوار واحترام الآخر","اتخاذ القرار ومقاومة ضغط الأقران","التفكير النقدي والتثبت من المعلومات","الاستعمال الآمن والمسؤول للإنترنت","إنتاج المحتوى الرقمي والتصميم والمونتاج","المشاركة والعمل الجماعي"],x:"مجالات أخرى"},
+{s:"احتياجاتك واقتراحاتك",t:"ما الأنشطة أو المبادرات التي تقترحها لمعالجة المشكلات التي يعيشها الشباب في محيطك؟",h:"سؤال اختياري، اكتب بحرية.",k:"t",opt:1}
+];
+const $=s=>document.querySelector(s),app=$("#app");
+let ans={},i=-1,db=null,U=null,isAdmin=false,unsub=null,rows=[];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function hero(){i=-1;app.innerHTML=`<section class="hero"><img class="logo" src="${LOGO}" alt="شعار دار الشباب العالية"><div><h1>استبيان تشخيص واقع الشباب واحتياجاتهم</h1>
+<p>في إطار مشروع MediaLab MJ El Alia، مختبر الإعلام الرقمي للوقاية من السلوكيات المحفوفة بالمخاطر. رأيك يساعدنا على فهم واقع الشباب وبناء أنشطة تناسبهم.</p>
+<ul class="facts"><li>${ic("list")}${Q.length} سؤالا</li><li>${ic("clock")}نحو 5 دقائق</li><li>${ic("lock")}بدون اسم أو بيانات شخصية</li></ul>
+<button class="btn" id="go">ابدأ الاستبيان</button></div></section>
+<div class="tiles">${Object.keys(SI).map(k=>`<div class="tile"><span class="ico">${ic(SI[k])}</span>${k}</div>`).join("")}</div>`;$("#go").onclick=()=>{i=0;step()};}
+function step(){
+const q=Q[i],pct=Math.round(i/Q.length*100);let body="";
+if(q.k==="s"||q.k==="m"){const m=q.k==="m",v=ans[i]||(m?{l:[],x:""}:null);
+body=`<div class="opts">`+q.o.map((o,j)=>`<label class="opt ${m?"m":""}"><input type="${m?"checkbox":"radio"}" name="q" value="${j}" ${(m?v.l.includes(o):v===o)?"checked":""}><span>${esc(o)}</span></label>`).join("")+`</div>`;
+if(q.x)body+=`<input class="other" id="ox" type="text" maxlength="200" placeholder="${q.x}: اكتبها هنا (اختياري)" value="${esc(m?v.x:"")}">`;}
+else if(q.k==="g"){const v=ans[i]||{};body=`<div class="grid">`+SKILLS.map((s,a)=>`<div class="gi" role="group" aria-label="${s}"><p>${s}</p><div class="scale">`+SC.map((c,b)=>`<label class="opt"><input type="radio" name="g${a}" value="${b+1}" ${v[a]==b+1?"checked":""}><span>${c}</span></label>`).join("")+`</div></div>`).join("")+`</div>`;}
+else body=`<textarea class="free" id="tx" maxlength="1200" placeholder="اكتب اقتراحاتك هنا...">${esc(ans[i]||"")}</textarea>`;
+app.innerHTML=`<div class="prog"><div class="row"><span>السؤال ${i+1} من ${Q.length}</span><span>${pct}%</span></div><div class="bar"><b style="width:${pct}%"></b></div></div>
+<section class="card"><p class="sec"><span class="ico">${ic(SI[q.s])}</span>${q.s}</p><h2 class="q">${q.t}</h2><p class="hint">${q.h||(q.k==="m"?"يمكنك اختيار أكثر من إجابة.":q.k==="s"?"اختر إجابة واحدة.":"")}</p>${body}<p class="err" id="er"></p>
+<div class="nav"><button class="btn ghost" id="pv" ${i?"":"disabled"}>السابق</button><button class="btn" id="nx">${i===Q.length-1?"إرسال الإجابات":q.opt?"التالي أو تخطي":"التالي"}</button></div></section>`;
+$("#pv").onclick=()=>{save(false);i--;step()};$("#nx").onclick=()=>{if(save(true)){i===Q.length-1?send():(i++,step())}};
+scrollTo({top:0});}
+function save(strict){const q=Q[i];let ok=true;
+if(q.k==="s"){const c=document.querySelector("input[name=q]:checked");if(c)ans[i]=q.o[c.value];else{delete ans[i];ok=!!q.opt}}
+else if(q.k==="m"){const l=[...document.querySelectorAll("input[name=q]:checked")].map(c=>q.o[c.value]),x=($("#ox")?.value||"").trim();ans[i]={l,x};ok=l.length>0||!!x}
+else if(q.k==="g"){const v={};SKILLS.forEach((_,a)=>{const c=document.querySelector(`input[name=g${a}]:checked`);if(c)v[a]=+c.value});ans[i]=v;ok=Object.keys(v).length===SKILLS.length}
+else{ans[i]=$("#tx").value.trim();ok=true}
+if(strict&&!ok){$("#er").textContent=q.k==="g"?"يرجى تقييم الممارسات الأربع قبل المتابعة.":"يرجى اختيار إجابة للمتابعة.";return false}
+return true}
+let LAST=null;
+async function send(){const b=$("#nx");b.disabled=true;b.textContent="جار الإرسال...";
+const rec={id:"r"+Date.now().toString(36)+Math.random().toString(36).slice(2,8),at:Date.now(),a:ans};LAST=rec;let sent=false;
+try{const L=JSON.parse(localStorage.getItem(KEY)||"[]");L.push(rec);localStorage.setItem(KEY,JSON.stringify(L))}catch(e){}
+if(SB_URL&&SB_KEY){try{const r=await fetch(SB_URL+"/rest/v1/responses",{method:"POST",headers:{apikey:SB_KEY,"Content-Type":"application/json",Prefer:"return=minimal"},body:JSON.stringify({id:rec.id,answers:rec.a})});sent=r.ok}catch(e){}}
+app.innerHTML=`<section class="card done"><div class="ck"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+<h2>شكرا على مشاركتك</h2><p>${sent?"تم إرسال إجاباتك. مساهمتك تساعدنا على بناء أنشطة تستجيب لاحتياجات الشباب.":"تم تسجيل إجاباتك على هذا الجهاز. مساهمتك تساعدنا على بناء أنشطة تستجيب لاحتياجات الشباب."}</p>
+<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn" id="again">استبيان جديد</button><button class="btn ghost" id="dl">${ic("down")}حفظ نسخة من الإجابة</button></div></section>`;
+$("#again").onclick=()=>{ans={};hero()};
+$("#dl").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([JSON.stringify([LAST])],{type:"application/json"}));a.download="reponse-"+LAST.id+".json";a.click()};}
+
+$("#hl").src=LOGO;hero();
+</script>
+</body>
+</html>
